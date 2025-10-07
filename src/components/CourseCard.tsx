@@ -18,7 +18,7 @@ export const CourseCard = ({ course, fullScreen = false }: CourseCardProps) => {
         className="h-full w-full cursor-pointer flex flex-col bg-card"
       >
         {/* Large Image Section */}
-        <div className="flex-1 relative overflow-hidden bg-gradient-primary">
+        <div className="flex-[0.6] relative overflow-hidden bg-gradient-primary">
           <div className="absolute inset-0 flex items-center justify-center text-9xl opacity-60">
             {course.image === "ai-prompting" && "🤖"}
             {course.image === "vibe-coding" && "💻"}
@@ -81,7 +81,7 @@ export const CourseCard = ({ course, fullScreen = false }: CourseCardProps) => {
         </div>
         
         {/* Content Section */}
-        <div className="p-6 space-y-4 bg-card border-t border-border">
+        <div className="flex-[0.4] p-6 space-y-3 bg-card border-t border-border flex flex-col justify-between">
           <h2 className="font-bold text-2xl leading-tight">
             {course.title}
           </h2>
