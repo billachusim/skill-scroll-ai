@@ -15,10 +15,10 @@ export const CourseCard = ({ course, fullScreen = false }: CourseCardProps) => {
     return (
       <div 
         onClick={() => navigate(`/course/${course.id}`)}
-        className="h-full w-full cursor-pointer flex flex-col bg-card overflow-hidden"
+        className="h-full w-full cursor-pointer flex flex-col bg-card"
       >
         {/* Large Image Section */}
-        <div className="h-[50%] relative overflow-hidden bg-gradient-primary">
+        <div className="flex-1 relative overflow-hidden bg-gradient-primary">
           <div className="absolute inset-0 flex items-center justify-center text-9xl opacity-60">
             {course.image === "ai-prompting" && "🤖"}
             {course.image === "vibe-coding" && "💻"}
@@ -81,45 +81,41 @@ export const CourseCard = ({ course, fullScreen = false }: CourseCardProps) => {
         </div>
         
         {/* Content Section */}
-        <div className="h-[50%] p-4 bg-card border-t border-border flex flex-col justify-between overflow-hidden">
-          <div className="space-y-2">
-            <h2 className="font-bold text-xl leading-tight line-clamp-2">
-              {course.title}
-            </h2>
-            
-            <p className="text-sm text-muted-foreground line-clamp-2">
-              {course.description}
-            </p>
+        <div className="p-6 space-y-4 bg-card border-t border-border">
+          <h2 className="font-bold text-2xl leading-tight">
+            {course.title}
+          </h2>
+          
+          <p className="text-muted-foreground line-clamp-2">
+            {course.description}
+          </p>
+          
+          <div className="flex items-center gap-6 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4" />
+              <span>{course.duration}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Users className="w-4 h-4" />
+              <span>{course.studentsCount.toLocaleString()}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Star className="w-4 h-4 fill-warning text-warning" />
+              <span>{course.rating}</span>
+            </div>
           </div>
           
-          <div className="space-y-3">
-            <div className="flex items-center gap-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4" />
-                <span>{course.duration}</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Users className="w-4 h-4" />
-                <span>{course.studentsCount.toLocaleString()}</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <Star className="w-4 h-4 fill-warning text-warning" />
-                <span>{course.rating}</span>
-              </div>
+          <div className="flex items-center justify-between pt-3 border-t border-border">
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Heart className="w-5 h-5" />
+              <span className="text-base">{course.likes.toLocaleString()}</span>
             </div>
-            
-            <div className="flex items-center justify-between pt-3 border-t border-border">
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <Heart className="w-5 h-5" />
-                <span className="text-base">{course.likes.toLocaleString()}</span>
-              </div>
-              <div className="font-bold text-xl">
-                {course.price === 0 ? (
-                  <span className="text-success">FREE</span>
-                ) : (
-                  <span>₦{course.price.toLocaleString()}</span>
-                )}
-              </div>
+            <div className="font-bold text-2xl">
+              {course.price === 0 ? (
+                <span className="text-success">FREE</span>
+              ) : (
+                <span>₦{course.price.toLocaleString()}</span>
+              )}
             </div>
           </div>
         </div>
