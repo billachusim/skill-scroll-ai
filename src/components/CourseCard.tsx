@@ -17,62 +17,74 @@ export const CourseCard = ({ course, fullScreen = false }: CourseCardProps) => {
         onClick={() => navigate(`/course/${course.id}`)}
         className="h-full w-full cursor-pointer flex flex-col bg-card"
       >
-        {/* Large Image Section */}
+        {/* Large Video/Image Section */}
         <div className="flex-1 relative overflow-hidden bg-gradient-primary">
-          <div className="absolute inset-0 flex items-center justify-center text-9xl opacity-60">
-            {course.image === "ai-prompting" && "🤖"}
-            {course.image === "vibe-coding" && "💻"}
-            {course.image === "data-analysis" && "📊"}
-            {course.image === "lovable" && "💜"}
-            {course.image === "replit" && "🔧"}
-            {course.image === "react" && "⚛️"}
-            {course.image === "typescript" && "📘"}
-            {course.image === "nodejs" && "🟢"}
-            {course.image === "uiux" && "🎨"}
-            {course.image === "git" && "🔀"}
-            {course.image === "python" && "🐍"}
-            {course.image === "sql" && "🗄️"}
-            {course.image === "tailwind" && "🎨"}
-            {course.image === "nextjs" && "▲"}
-            {course.image === "docker" && "🐳"}
-            {course.image === "aws" && "☁️"}
-            {course.image === "javascript" && "📜"}
-            {course.image === "mongodb" && "🍃"}
-            {course.image === "api" && "🔌"}
-            {course.image === "figma" && "🎨"}
-            {course.image === "vue" && "💚"}
-            {course.image === "firebase" && "🔥"}
-            {course.image === "svelte" && "🧡"}
-            {course.image === "graphql" && "💗"}
-            {course.image === "redux" && "💜"}
-            {course.image === "testing" && "🧪"}
-            {course.image === "webpack" && "📦"}
-            {course.image === "accessibility" && "♿"}
-            {course.image === "stripe" && "💳"}
-            {course.image === "ml" && "🤖"}
-            {course.image === "shopify" && "🛍️"}
-            {course.image === "wordpress" && "📝"}
-            {course.image === "react-native" && "📱"}
-            {course.image === "flutter" && "🦋"}
-            {course.image === "electron" && "⚡"}
-            {course.image === "rust" && "🦀"}
-            {course.image === "golang" && "🐹"}
-            {course.image === "kubernetes" && "☸️"}
-            {course.image === "cicd" && "🔄"}
-            {course.image === "blockchain" && "⛓️"}
-            {course.image === "security" && "🔒"}
-            {course.image === "seo" && "🔍"}
-            {course.image === "ai-marketing" && "📢"}
-            {course.image === "ai-content" && "✍️"}
-            {course.image === "video-editing" && "🎬"}
-            {course.image === "blender" && "🎲"}
-            {course.image === "unity" && "🎮"}
-            {course.image === "unreal" && "🎮"}
-            {course.image === "product-management" && "📋"}
-            {course.image === "startup" && "🚀"}
-          </div>
+          {course.video ? (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src={course.video} type="video/mp4" />
+            </video>
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center text-9xl opacity-60">
+              {course.image === "ai-prompting" && "🤖"}
+              {course.image === "vibe-coding" && "💻"}
+              {course.image === "data-analysis" && "📊"}
+              {course.image === "lovable" && "💜"}
+              {course.image === "replit" && "🔧"}
+              {course.image === "react" && "⚛️"}
+              {course.image === "typescript" && "📘"}
+              {course.image === "nodejs" && "🟢"}
+              {course.image === "uiux" && "🎨"}
+              {course.image === "git" && "🔀"}
+              {course.image === "python" && "🐍"}
+              {course.image === "sql" && "🗄️"}
+              {course.image === "tailwind" && "🎨"}
+              {course.image === "nextjs" && "▲"}
+              {course.image === "docker" && "🐳"}
+              {course.image === "aws" && "☁️"}
+              {course.image === "javascript" && "📜"}
+              {course.image === "mongodb" && "🍃"}
+              {course.image === "api" && "🔌"}
+              {course.image === "figma" && "🎨"}
+              {course.image === "vue" && "💚"}
+              {course.image === "firebase" && "🔥"}
+              {course.image === "svelte" && "🧡"}
+              {course.image === "graphql" && "💗"}
+              {course.image === "redux" && "💜"}
+              {course.image === "testing" && "🧪"}
+              {course.image === "webpack" && "📦"}
+              {course.image === "accessibility" && "♿"}
+              {course.image === "stripe" && "💳"}
+              {course.image === "ml" && "🤖"}
+              {course.image === "shopify" && "🛍️"}
+              {course.image === "wordpress" && "📝"}
+              {course.image === "react-native" && "📱"}
+              {course.image === "flutter" && "🦋"}
+              {course.image === "electron" && "⚡"}
+              {course.image === "rust" && "🦀"}
+              {course.image === "golang" && "🐹"}
+              {course.image === "kubernetes" && "☸️"}
+              {course.image === "cicd" && "🔄"}
+              {course.image === "blockchain" && "⛓️"}
+              {course.image === "security" && "🔒"}
+              {course.image === "seo" && "🔍"}
+              {course.image === "ai-marketing" && "📢"}
+              {course.image === "ai-content" && "✍️"}
+              {course.image === "video-editing" && "🎬"}
+              {course.image === "blender" && "🎲"}
+              {course.image === "unity" && "🎮"}
+              {course.image === "unreal" && "🎮"}
+              {course.image === "product-management" && "📋"}
+              {course.image === "startup" && "🚀"}
+            </div>
+          )}
           {course.price === 0 && (
-            <div className="absolute top-4 right-4">
+            <div className="absolute top-4 right-4 z-10">
               <span className="text-sm font-bold px-3 py-1.5 rounded-full bg-success text-white shadow-lg">
                 FREE
               </span>
@@ -129,58 +141,70 @@ export const CourseCard = ({ course, fullScreen = false }: CourseCardProps) => {
       className="relative overflow-hidden bg-card border-border cursor-pointer transition-all hover:scale-[1.02] hover:shadow-glow-primary"
     >
       <div className="aspect-video relative overflow-hidden bg-gradient-primary">
-        <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-50">
-          {course.image === "ai-prompting" && "🤖"}
-          {course.image === "vibe-coding" && "💻"}
-          {course.image === "data-analysis" && "📊"}
-          {course.image === "lovable" && "💜"}
-          {course.image === "replit" && "🔧"}
-          {course.image === "react" && "⚛️"}
-          {course.image === "typescript" && "📘"}
-          {course.image === "nodejs" && "🟢"}
-          {course.image === "uiux" && "🎨"}
-          {course.image === "git" && "🔀"}
-          {course.image === "python" && "🐍"}
-          {course.image === "sql" && "🗄️"}
-          {course.image === "tailwind" && "🎨"}
-          {course.image === "nextjs" && "▲"}
-          {course.image === "docker" && "🐳"}
-          {course.image === "aws" && "☁️"}
-          {course.image === "javascript" && "📜"}
-          {course.image === "mongodb" && "🍃"}
-          {course.image === "api" && "🔌"}
-          {course.image === "figma" && "🎨"}
-          {course.image === "vue" && "💚"}
-          {course.image === "firebase" && "🔥"}
-          {course.image === "svelte" && "🧡"}
-          {course.image === "graphql" && "💗"}
-          {course.image === "redux" && "💜"}
-          {course.image === "testing" && "🧪"}
-          {course.image === "webpack" && "📦"}
-          {course.image === "accessibility" && "♿"}
-          {course.image === "stripe" && "💳"}
-          {course.image === "ml" && "🤖"}
-          {course.image === "shopify" && "🛍️"}
-          {course.image === "wordpress" && "📝"}
-          {course.image === "react-native" && "📱"}
-          {course.image === "flutter" && "🦋"}
-          {course.image === "electron" && "⚡"}
-          {course.image === "rust" && "🦀"}
-          {course.image === "golang" && "🐹"}
-          {course.image === "kubernetes" && "☸️"}
-          {course.image === "cicd" && "🔄"}
-          {course.image === "blockchain" && "⛓️"}
-          {course.image === "security" && "🔒"}
-          {course.image === "seo" && "🔍"}
-          {course.image === "ai-marketing" && "📢"}
-          {course.image === "ai-content" && "✍️"}
-          {course.image === "video-editing" && "🎬"}
-          {course.image === "blender" && "🎲"}
-          {course.image === "unity" && "🎮"}
-          {course.image === "unreal" && "🎮"}
-          {course.image === "product-management" && "📋"}
-          {course.image === "startup" && "🚀"}
-        </div>
+        {course.video ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={course.video} type="video/mp4" />
+          </video>
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-50">
+            {course.image === "ai-prompting" && "🤖"}
+            {course.image === "vibe-coding" && "💻"}
+            {course.image === "data-analysis" && "📊"}
+            {course.image === "lovable" && "💜"}
+            {course.image === "replit" && "🔧"}
+            {course.image === "react" && "⚛️"}
+            {course.image === "typescript" && "📘"}
+            {course.image === "nodejs" && "🟢"}
+            {course.image === "uiux" && "🎨"}
+            {course.image === "git" && "🔀"}
+            {course.image === "python" && "🐍"}
+            {course.image === "sql" && "🗄️"}
+            {course.image === "tailwind" && "🎨"}
+            {course.image === "nextjs" && "▲"}
+            {course.image === "docker" && "🐳"}
+            {course.image === "aws" && "☁️"}
+            {course.image === "javascript" && "📜"}
+            {course.image === "mongodb" && "🍃"}
+            {course.image === "api" && "🔌"}
+            {course.image === "figma" && "🎨"}
+            {course.image === "vue" && "💚"}
+            {course.image === "firebase" && "🔥"}
+            {course.image === "svelte" && "🧡"}
+            {course.image === "graphql" && "💗"}
+            {course.image === "redux" && "💜"}
+            {course.image === "testing" && "🧪"}
+            {course.image === "webpack" && "📦"}
+            {course.image === "accessibility" && "♿"}
+            {course.image === "stripe" && "💳"}
+            {course.image === "ml" && "🤖"}
+            {course.image === "shopify" && "🛍️"}
+            {course.image === "wordpress" && "📝"}
+            {course.image === "react-native" && "📱"}
+            {course.image === "flutter" && "🦋"}
+            {course.image === "electron" && "⚡"}
+            {course.image === "rust" && "🦀"}
+            {course.image === "golang" && "🐹"}
+            {course.image === "kubernetes" && "☸️"}
+            {course.image === "cicd" && "🔄"}
+            {course.image === "blockchain" && "⛓️"}
+            {course.image === "security" && "🔒"}
+            {course.image === "seo" && "🔍"}
+            {course.image === "ai-marketing" && "📢"}
+            {course.image === "ai-content" && "✍️"}
+            {course.image === "video-editing" && "🎬"}
+            {course.image === "blender" && "🎲"}
+            {course.image === "unity" && "🎮"}
+            {course.image === "unreal" && "🎮"}
+            {course.image === "product-management" && "📋"}
+            {course.image === "startup" && "🚀"}
+          </div>
+        )}
       </div>
       
       <div className="p-4 space-y-3">

@@ -3,6 +3,7 @@ export interface Course {
   title: string;
   description: string;
   image: string;
+  video?: string; // Optional video URL for engagement
   duration: string;
   price: number; // 0 for free courses
   studentsCount: number;
@@ -24,6 +25,7 @@ export const courses: Course[] = [
     title: "AI Prompt Engineering Mastery",
     description: "Master the art of crafting perfect prompts for ChatGPT, Claude, and other AI models. Learn advanced techniques to get better results.",
     image: "ai-prompting",
+    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
     duration: "6 weeks",
     price: 0,
     studentsCount: 12547,
@@ -60,6 +62,7 @@ export const courses: Course[] = [
     title: "Vibe Coding: Code with AI",
     description: "Learn to code by vibing with AI assistants. Build real projects using Cursor, GitHub Copilot, and AI-powered development.",
     image: "vibe-coding",
+    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
     duration: "8 weeks",
     price: 25000,
     studentsCount: 8923,
@@ -96,6 +99,7 @@ export const courses: Course[] = [
     title: "Data Analysis with Python",
     description: "Transform raw data into actionable insights. Learn pandas, NumPy, and visualization libraries to analyze real-world datasets.",
     image: "data-analysis",
+    video: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     duration: "10 weeks",
     price: 35000,
     studentsCount: 15234,
